@@ -64,12 +64,12 @@ export default {
         '103': 'iconfont icon-layers',
         '101': 'iconfont icon-shopping',
         '102': 'iconfont icon-nav-list',
-        '145': 'iconfont icon-data'
+        '145': 'iconfont icon-data',
       },
       //   是否折叠
       iscollapse: false,
       //   导航栏高亮
-      activePath: ''
+      activePath: '',
     }
   },
   created() {
@@ -98,12 +98,17 @@ export default {
     //   this.activePath = this.$route.path
     // }
   },
-  watch:{
+  watch: {
     //   监听浏览器地址变化来刷新导航栏对应的高亮
-      $route(to,from){
-          this.activePath = to.path
+    $route(to, from) {
+      if (to.path.includes(from.path)) {
+        this.activePath = from.path
+      } else {
+        this.activePath = to.path
       }
-  }
+      // console.log(to.path + ' ' + from.path + ' ' + this.activePath)
+    },
+  },
 }
 </script>
 
