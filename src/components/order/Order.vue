@@ -38,7 +38,7 @@
           <template slot-scope="scope">{{scope.row.create_time | dateFormat}}</template>
         </el-table-column>
         <el-table-column label="操作">
-          <template slot-scope="scope">
+          <template>
             <el-tooltip content="修改订单地址" placement="top" effect="dark" :enterable="false">
               <el-button type="primary" icon="el-icon-edit" size="mini" @click="showBox"></el-button>
             </el-tooltip>
